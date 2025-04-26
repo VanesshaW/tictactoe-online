@@ -156,8 +156,8 @@ const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
   };
 
   const copyGameCode = () => {
-    const currentUrl = window.location.href;
-    navigator.clipboard.writeText(currentUrl);
+    // Replace with your actual domain
+    navigator.clipboard.writeText(`https://tictactoe-online-git-main-vanesshaws-projects.vercel.app/game/${gameId}`);
     toast({
       title: "Game code copied!",
       description: "The game link has been copied to your clipboard.",
@@ -224,7 +224,7 @@ const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
             <span className='mr-4'>Join this game:</span>
             <Card className="bg-gray-800 border-gray-700">
               <CardContent className="flex items-center p-2">
-              <span className="mr-2 text-white">{window.location.host}/game/...</span>
+              <span className="mr-2 text-white">{'tictactoe-online-git-main-vanesshaws-projects.vercel.app/game/...'}</span>
                 <Button onClick={copyGameCode} variant="ghost" className="bg-gray-700 border-gray-600 text-white" size="sm">
                   <Copy className="h-4 w-4" />
                 </Button>
