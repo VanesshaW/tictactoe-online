@@ -67,3 +67,98 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Add this to your global.css file after the existing code */
+
+/* Bubble Animation Background */
+.bubble-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: float 15s infinite ease-in-out;
+  opacity: 0.5;
+}
+
+.bubble-1 {
+  width: 120px;
+  height: 120px;
+  left: 10%;
+  animation-duration: 24s;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  width: 80px;
+  height: 80px;
+  left: 30%;
+  animation-duration: 32s;
+  animation-delay: 2s;
+}
+
+.bubble-3 {
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  animation-duration: 28s;
+  animation-delay: 4s;
+}
+
+.bubble-4 {
+  width: 100px;
+  height: 100px;
+  left: 70%;
+  animation-duration: 20s;
+  animation-delay: 1s;
+}
+
+.bubble-5 {
+  width: 130px;
+  height: 130px;
+  left: 85%;
+  animation-duration: 26s;
+  animation-delay: 3s;
+}
+
+.bubble-6 {
+  width: 90px;
+  height: 90px;
+  left: 20%;
+  animation-duration: 22s;
+  animation-delay: 6s;
+}
+
+.bubble-7 {
+  width: 160px;
+  height: 160px;
+  left: 60%;
+  animation-duration: 30s;
+  animation-delay: 7s;
+}
+
+.bubble-8 {
+  width: 110px;
+  height: 110px;
+  left: 40%;
+  animation-duration: 36s;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+  }
+  100% {
+    transform: translateY(-20vh) scale(1);
+  }
+}

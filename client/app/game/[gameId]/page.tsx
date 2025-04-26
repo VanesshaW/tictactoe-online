@@ -7,6 +7,21 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { AlertCircle, Home, Copy, RefreshCw } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { toast } from "@/components/ui/use-toast"
+// Bubble Background Component
+const BubbleBackground = () => {
+  return (
+    <div className="bubble-background">
+      <div className="bubble bubble-1"></div>
+      <div className="bubble bubble-2"></div>
+      <div className="bubble bubble-3"></div>
+      <div className="bubble bubble-4"></div>
+      <div className="bubble bubble-5"></div>
+      <div className="bubble bubble-6"></div>
+      <div className="bubble bubble-7"></div>
+      <div className="bubble bubble-8"></div>
+    </div>
+  );
+};
 
 const GamePage = ({ params }: { params: any }) => {
   const [game, setGame] = useState<any | null>(null);
