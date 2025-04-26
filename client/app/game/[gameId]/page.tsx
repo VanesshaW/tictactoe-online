@@ -12,9 +12,10 @@ const GamePage = ({ params }: { params: any }) => {
   const [game, setGame] = useState<any | null>(null);
   const [error, setError] = useState('');
   const [playerId, setPlayerId] = useState<string | null>(null);
-const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
+  const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
   const [hoveredCell, setHoveredCell] = useState(null);
   const [clickLog, setClickLog] = useState([]);
+  const [isMuted, setIsMuted] = useState(true); // Added state for controlling audio
   const router = useRouter();
   const { gameId } = params;
   const joinRequestMade = useRef(false);
@@ -163,13 +164,6 @@ const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
       description: "The game link has been copied to your clipboard.",
     });
   };
-  // const copyGameCode = () => {
-  //   navigator.clipboard.writeText(`https://kr30xs-tictactoe-online.vercel.app/game/${gameId}`);
-  //   toast({
-  //     title: "Game code copied!",
-  //     description: "The game code has been copied to your clipboard.",
-  //   });
-  // };
 
   const handlePlayAgain = async () => {
     try {
@@ -204,6 +198,24 @@ const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-gray-100 p-4">
+      {/* YouTube background music - add your video ID below */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <div className="flex items-center bg-gray-800 p-2 rounded-lg">
+          <Button 
+            onClick={() => setIsMuted(!isMuted)} 
+            className="bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            {isMuted ? "🔇 Unmute Music" : "🔊 Mute Music"}
+          </Button>
+        </div>
+        <iframe
+          className="w-0 h-0 invisible"
+          src={`https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=dQw4w9WgXcQ`}
+          allow="autoplay; encrypted-media"
+          title="Background Music"
+        ></iframe>
+      </div>
+
       <div className="w-full max-w-2xl mb-4 flex justify-between items-center">
         <Button 
           onClick={() => router.push('/')} 
@@ -291,8 +303,6 @@ const [playerSymbol, setPlayerSymbol] = useState<string | null>(null);
               </AlertDescription>
             </Alert>
           )}
-
-          
 
           {error && (
             <Alert variant="destructive" className="mt-4 bg-red-900 border-red-800 text-white">
